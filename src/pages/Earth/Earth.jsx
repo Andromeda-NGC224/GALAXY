@@ -15,8 +15,8 @@ const Earth = () => {
 	useFrame(({ clock }) => {
 		const elapsedTime = clock.getElapsedTime();
 
-		earthRef.current.rotation.y = elapsedTime / 6;
-		cloudsRef.current.rotation.y = elapsedTime / 4;
+		earthRef.current.rotation.y = elapsedTime / 12;
+		cloudsRef.current.rotation.y = elapsedTime / 7;
     });
     
 
@@ -27,8 +27,7 @@ const Earth = () => {
     
     return (
         <>
-			<ambientLight intensity={10} />
-			<pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={1.2} />
+			<pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={100} />
 			<Stars
 				radius={300}
 				depth={60}
