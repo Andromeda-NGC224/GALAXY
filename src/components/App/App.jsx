@@ -21,7 +21,7 @@ const App = () => {
   // onWheel={handleWheelScroll}
 
   return (
-      <div style={{ height: '101vh' }} >
+      <div>
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Earth />} />

@@ -7,6 +7,9 @@ import { TextureLoader } from "three";
 import EarthDayMap from "../../assets/8k_earth_daymap.webp";
 import EarthCloudsMap from "../../assets/8k_earth_clouds.webp";
 
+
+
+
 const Earth = () => { 
 
     const earthRef = useRef();
@@ -20,14 +23,18 @@ const Earth = () => {
     });
     
 
-    const [colorMap,  cloudsMap] = useLoader(
+    const [colorMap, cloudsMap] = useLoader(
 		TextureLoader,
-		[EarthDayMap,  EarthCloudsMap]
+		[EarthDayMap, EarthCloudsMap]
 	);
     
+
+	
     return (
-        <>
-			<pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={100} />
+		<>
+			<ambientLight intensity={0.5} />
+			
+			<pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={100} />
 			<Stars
 				radius={300}
 				depth={60}
@@ -46,24 +53,11 @@ const Earth = () => {
 					side={THREE.DoubleSide}
 				/>
 			</mesh>
-			<mesh ref={earthRef} position={[0, 0, 0]} scale='1'>
-				<sphereGeometry args={[1, 32, 32]} />
-				<meshStandardMaterial
-                    map={colorMap}
-					metalness={0.4}
-					roughness={0.7}
-				/>
-				<OrbitControls
-					enableZoom={true}
-					enablePan={true}
-					enableRotate={true}
-					zoomSpeed={0.6}
-					panSpeed={0.5}
-					rotateSpeed={0.4}
-					minDistance={1.5}
-					maxDistance={5}
-				/>
-			</mesh>
+			<mesh ref={earthRef} position={[0, 0, 0]} scale="1">
+                <sphereGeometry args={[1, 32, 32]} />
+                <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
+            </mesh>
+			<OrbitControls enableZoom={true} enablePan={true} enableRotate={true} zoomSpeed={0.6} panSpeed={0.5} rotateSpeed={0.4} minDistance={1.5} maxDistance={5} />
 		</>
 )
 }
