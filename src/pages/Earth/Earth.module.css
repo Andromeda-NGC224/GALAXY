@@ -16,7 +16,7 @@
   height: 200vh;
   top: 0;
   left: 0;
-  background-color: rgb(0, 0, 153, 0.05);
+  background-color: rgba(1, 1, 192, 0.09);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,4 +27,48 @@
 }
 .inspectionLarge {
   height: 200vh;
+}
+.btnDes {
+  position: absolute;
+  outline: none;
+  border: none;
+  background-color: #d60606;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  top: 65%;
+  left: 44, 5%;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 500ms linear;
+  z-index: 199;
+}
+.btnDes:hover {
+  background-color: transparent;
+  border: 2px solid #d60606;
+}
+.btnRes {
+  position: absolute;
+  outline: none;
+  border: none;
+  background-color: #0270ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  top: 65%;
+  left: 44, 5%;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 350ms ease-in-out;
+  z-index: 199;
+}
+.btnRes:hover {
+  background-color: transparent;
+  border: 2px solid #0270ff;
 }

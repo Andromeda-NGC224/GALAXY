@@ -1,15 +1,84 @@
-import { motion } from "framer-motion";
+import { Suspense, useState } from "react";
+import css from "../Sun/Sun.module.css";
+import CrossRoute from "../../components/CrossRoute/CrossRoute";
+import EarthDescr from "../../components/EarthComponent/EarthDescr";
+import { Canvas } from "@react-three/fiber";
+import Loader from "../../components/Loader/Loader";
+import Sun from "./Sun";
+import DestroyedSun from "./DestroyedSun";
 
 const SunApp = () => {
+  const [inspection, setInspection] = useState(false);
+
+  const [destroy, setDestroy] = useState(false);
+
+  const handleDestroy = () => {
+    setDestroy(true);
+  };
+
+  const handleRestore = () => {
+    setDestroy(false);
+  };
+  const showInspection = () => {
+    setInspection(true);
+  };
+  const hideInspection = () => {
+    setInspection(false);
+  };
+
   return (
-    <motion.div
-      style={{ color: "white" }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      Sun
-    </motion.div>
+    <>
+      <div className={css.btnCont}>
+        {!inspection ? (
+          <button onClick={showInspection} className={css.btnLook}>
+            <p>Оглянути планету</p>
+          </button>
+        ) : (
+          <button onClick={hideInspection} className={css.btnBack}>
+            <p>Назад</p>
+          </button>
+        )}
+      </div>
+
+      {!inspection ? (
+        <div className={css.startBox}>
+          <CrossRoute
+            topRoute={"/"}
+            bottomRoute={"Sun"}
+            signTop={"Венера ♀"}
+            signBottom={"Сонце ☉"}
+          />
+          <EarthDescr />
+          {!destroy ? (
+            <button className={css.btnDes} onClick={handleDestroy}>
+              Зруйнувати
+            </button>
+          ) : (
+            <button className={css.btnRes} onClick={handleRestore}>
+              Відновити
+            </button>
+          )}
+        </div>
+      ) : null}
+
+      {!inspection ? (
+        <div className={css.inspectionLarge}>
+          <Canvas className={css.canvasCont}>
+            <Suspense fallback={<Loader />}>
+              {!destroy ? <Sun /> : <DestroyedSun />}
+            </Suspense>
+          </Canvas>
+        </div>
+      ) : (
+        <div className={css.inspectionSmall}>
+          <Canvas className={css.canvasCont}>
+            <Suspense fallback={<Loader />}>
+              {!destroy ? <Sun /> : <DestroyedSun />}
+            </Suspense>
+          </Canvas>
+        </div>
+      )}
+    </>
   );
 };
 export default SunApp;
