@@ -21,19 +21,18 @@ const Sun = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={15} />
 
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={100} />
       <Stars
         radius={300}
         depth={60}
-        count={20000}
+        count={10000}
         factor={7}
         saturation={0}
         fade={true}
       />
 
-      <mesh ref={sunRef} position={[0, 0, 0]} scale={[1, 1, 1]}>
+      <mesh ref={sunRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>

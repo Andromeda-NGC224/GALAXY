@@ -1,7 +1,7 @@
 import { Suspense, useState } from "react";
 import css from "../Sun/Sun.module.css";
 import CrossRoute from "../../components/CrossRoute/CrossRoute";
-import EarthDescr from "../../components/EarthComponent/EarthDescr";
+import SunDescr from "../../components/SunComponent/SunDescr";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../../components/Loader/Loader";
 import Sun from "./Sun";
@@ -43,12 +43,12 @@ const SunApp = () => {
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
-            topRoute={"/"}
-            bottomRoute={"Sun"}
+            topRoute={"/Venus"}
+            bottomRoute={""}
             signTop={"Венера ♀"}
             signBottom={"Сонце ☉"}
           />
-          <EarthDescr />
+          <SunDescr />
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               Зруйнувати

@@ -1,8 +1,6 @@
 import css from "./App.module.css";
 import { Route, Routes } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { Suspense, lazy } from "react";
-import Loader from "../Loader/Loader";
+import {  lazy } from "react";
 import Layout from "../Layout/Layout";
 
 

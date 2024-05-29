@@ -1,15 +1,13 @@
 import { Suspense, useState } from "react";
 import css from "../Sun/Sun.module.css";
 import CrossRoute from "../../components/CrossRoute/CrossRoute";
-import EarthDescr from "../../components/EarthComponent/EarthDescr";
+import VenusDescr from "../../components/VenusComponent/VenusDescr";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../../components/Loader/Loader";
 import Venus from "./Venus";
 import DestroyedVenus from "./DestroyedVenus";
-import { useLocation } from "react-router-dom";
 
 const VenusApp = () => {
-  const location = useLocation();
   const [inspection, setInspection] = useState(false);
 
   const [destroy, setDestroy] = useState(false);
@@ -46,11 +44,11 @@ const VenusApp = () => {
         <div className={css.startBox}>
           <CrossRoute
             topRoute={"/"}
-            bottomRoute={"Sun"}
-            signTop={"Венера ♀"}
+            bottomRoute={"/Sun"}
+            signTop={"Земля D♁"}
             signBottom={"Сонце ☉"}
           />
-          <EarthDescr />
+          <VenusDescr />
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               Зруйнувати

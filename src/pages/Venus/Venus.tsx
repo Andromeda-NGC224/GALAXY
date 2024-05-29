@@ -40,7 +40,7 @@ const Venus = () => {
         saturation={0}
         fade={true}
       />
-      <mesh ref={cloudsVenusRef} position={[0, 0, 0]} scale={[1, 1, 1]}>
+      <mesh ref={cloudsVenusRef} position={[0, 0, 0]} scale={[0.9, 0.9, 0.9]}>
         <sphereGeometry args={[1.005, 32, 32]} />
         <meshPhongMaterial
           map={cloudsVenusMap}
@@ -50,7 +50,7 @@ const Venus = () => {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <mesh ref={venusRef} position={[0, 0, 0]} scale={[1, 1, 1]}>
+      <mesh ref={venusRef} position={[0, 0, 0]} scale={[0.9, 0.9, 0.9]}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>

@@ -17,14 +17,22 @@ const CrossRoute = ({
 }: CrossRouteProps) => {
   return (
     <div>
-      <NavLink to={topRoute} className={css.arrowTop}>
-        <IoIosArrowDropup className={css.arrowIcon} />
-        <h2>{signTop}</h2>
-      </NavLink>
-      <NavLink to={bottomRoute} className={css.arrowBottom}>
-        <h2>{signBottom}</h2>
-        <IoIosArrowDropdown className={css.arrowIcon} />
-      </NavLink>
+      {topRoute !== "" ? (
+        <NavLink to={topRoute} className={css.arrowTop}>
+          <IoIosArrowDropup className={css.arrowIcon} />
+          <h2>{signTop}</h2>
+        </NavLink>
+      ) : (
+        ""
+      )}
+      {bottomRoute !== "" ? (
+        <NavLink to={bottomRoute} className={css.arrowBottom}>
+          <h2>{signBottom}</h2>
+          <IoIosArrowDropdown className={css.arrowIcon} />
+        </NavLink>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
