@@ -3,36 +3,36 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef } from "react";
 import { TextureLoader } from "three";
+import MarsMap from "../../assets/mars/8k_mars.webp";
 
-import DestroyedSunMap from "../../assets/Lava/sunDes.webp";
-
-const DestroyedSun = () => {
-  const sunRef = useRef<THREE.Mesh>(null);
+const Mars = () => {
+  const marsRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    if (sunRef.current) {
-      sunRef.current.rotation.y = elapsedTime / 12;
+    if (marsRef.current) {
+      marsRef.current.rotation.y = elapsedTime / 12;
     }
   });
 
-  const [colorMap] = useLoader(TextureLoader, [DestroyedSunMap]);
+  const [colorMap] = useLoader(TextureLoader, [MarsMap]);
 
   return (
     <>
-      <ambientLight intensity={15} />
-
+      <ambientLight intensity={0.5} />
+      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={100} />
       <Stars
         radius={300}
         depth={60}
-        count={20000}
+        count={10000}
         factor={7}
         saturation={0}
         fade={true}
       />
-      <mesh ref={sunRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
-        <sphereGeometry args={[1, 32, 15]} />
+
+      <mesh ref={marsRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
+        <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>
       <OrbitControls
@@ -49,4 +49,4 @@ const DestroyedSun = () => {
   );
 };
 
-export default DestroyedSun;
+export default Mars;

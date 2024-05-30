@@ -1,32 +1,34 @@
+import css from "../NeptuneComponent/NeptuneDescr.module.css";
 import { IoPlanet } from "react-icons/io5";
-import css from "../EarthComponent/EarthDescr.module.css";
 
-const EarthDescr = () => {
+const NeptuneDescr = () => {
   return (
     <div className={css.EarthDescrCont}>
-      <h1 className={css.EarthDescrTitle}>Земля D♁</h1>
+      <h1 className={css.EarthDescrTitle}>Нептун ♆</h1>
       <ul className={css.EarthDescrList}>
         <li className={css.EarthDescrItem}>
-          <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 149
-          600 000 km
+          <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 4 504
+          300 000 km
         </li>
         <li>
-          <span className={css.EarthDescrSpan}>Маса:</span> 5.97 × 10^24 кг{" "}
+          <span className={css.EarthDescrSpan}>Маса:</span> 1.02 × 10^26 кг
+          (17.1 мас Землі)
         </li>
         <li>
           <span className={css.EarthDescrSpan}>
             Час повного обороту навколо осі (доба):
           </span>{" "}
-          23г. 54хв.
+          16.1 годин
         </li>
         <li>
           <span className={css.EarthDescrSpan}>
             Час повного обороту навколо Сонця (рік):
           </span>{" "}
-          365.25 земних днів (1 рік)
+          60,182 земних днів (приблизно 164.8 земних років)
         </li>
         <li>
-          <span className={css.EarthDescrSpan}>Температура поверхні:</span> 15℃
+          <span className={css.EarthDescrSpan}>Температура поверхні:</span>{" "}
+          -200℃
         </li>
       </ul>
       <button className={css.btnNavigation}>
@@ -36,4 +38,4 @@ const EarthDescr = () => {
   );
 };
 
-export default EarthDescr;
+export default NeptuneDescr;

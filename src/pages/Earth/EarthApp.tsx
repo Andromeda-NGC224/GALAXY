@@ -6,6 +6,10 @@ import Loader from "../../components/Loader/Loader";
 import css from "../Earth/Earth.module.css";
 import EarthDescr from "../../components/EarthComponent/EarthDescr";
 import CrossRoute from "../../components/CrossRoute/CrossRoute";
+import { PiPlantBold } from "react-icons/pi";
+import { GiSmallFire } from "react-icons/gi";
+import { FaRegEye } from "react-icons/fa";
+import { GrSatellite } from "react-icons/gr";
 
 const EarthApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -32,10 +36,12 @@ const EarthApp = () => {
         {!inspection ? (
           <button onClick={showInspection} className={css.btnLook}>
             <p>Оглянути планету</p>
+            <FaRegEye />
           </button>
         ) : (
           <button onClick={hideInspection} className={css.btnBack}>
             <p>Назад</p>
+            <GrSatellite />
           </button>
         )}
       </div>
@@ -43,7 +49,7 @@ const EarthApp = () => {
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
-            topRoute={"/"}
+            topRoute={"/Mars"}
             bottomRoute={"/Venus"}
             signTop={"Марс ♂"}
             signBottom={"Венера ♀"}
@@ -51,11 +57,13 @@ const EarthApp = () => {
           <EarthDescr />
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
-              Зруйнувати
+              <p>Зруйнувати</p>
+              <GiSmallFire />
             </button>
           ) : (
             <button className={css.btnRes} onClick={handleRestore}>
-              Відновити
+              <p>Відновити</p>
+              <PiPlantBold />
             </button>
           )}
         </div>

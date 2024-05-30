@@ -1,17 +1,17 @@
 import { Suspense, useState } from "react";
-import css from "../Sun/Sun.module.css";
+import css from "../Uranus/Uranus.module.css";
 import CrossRoute from "../../components/CrossRoute/CrossRoute";
-import VenusDescr from "../../components/VenusComponent/VenusDescr";
+import UranusDescr from "../../components/UranusComponent/UranusDescr";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../../components/Loader/Loader";
-import Venus from "./Venus";
-import DestroyedVenus from "./DestroyedVenus";
-import { PiPlantBold } from "react-icons/pi";
+import Uranus from "./Uranus";
+import DestroyedUranus from "./DestroyedUranus";
 import { GiSmallFire } from "react-icons/gi";
-import { FaRegEye } from "react-icons/fa";
+import { PiPlantBold } from "react-icons/pi";
 import { GrSatellite } from "react-icons/gr";
+import { FaRegEye } from "react-icons/fa";
 
-const VenusApp = () => {
+const UranusApp = () => {
   const [inspection, setInspection] = useState(false);
 
   const [destroy, setDestroy] = useState(false);
@@ -49,12 +49,12 @@ const VenusApp = () => {
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
-            topRoute={"/"}
-            bottomRoute={"/Mercury"}
-            signTop={"Земля D♁"}
-            signBottom={"Меркурій ☿"}
+            topRoute={"/Neptune"}
+            bottomRoute={"/Saturn"}
+            signTop={"Нептун ♆"}
+            signBottom={"Сатурн ♄"}
           />
-          <VenusDescr />
+          <UranusDescr />
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>
@@ -73,7 +73,7 @@ const VenusApp = () => {
         <div className={css.inspectionLarge}>
           <Canvas className={css.canvasCont}>
             <Suspense fallback={<Loader />}>
-              {!destroy ? <Venus /> : <DestroyedVenus />}
+              {!destroy ? <Uranus /> : <DestroyedUranus />}
             </Suspense>
           </Canvas>
         </div>
@@ -81,7 +81,7 @@ const VenusApp = () => {
         <div className={css.inspectionSmall}>
           <Canvas className={css.canvasCont}>
             <Suspense fallback={<Loader />}>
-              {!destroy ? <Venus /> : <DestroyedVenus />}
+              {!destroy ? <Uranus /> : <DestroyedUranus />}
             </Suspense>
           </Canvas>
         </div>
@@ -89,4 +89,4 @@ const VenusApp = () => {
     </>
   );
 };
-export default VenusApp;
+export default UranusApp;

@@ -34,9 +34,9 @@
   border: none;
   background-color: #d60606;
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
-  border-radius: 8px;
+  border-radius: 50px;
   top: 65%;
   left: 44, 5%;
   width: 250px;
@@ -45,10 +45,15 @@
   border: 2px solid transparent;
   transition: all 500ms linear;
   z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 .btnDes:hover {
   background-color: transparent;
   border: 2px solid #d60606;
+  color: #d60606;
 }
 .btnRes {
   position: absolute;
@@ -56,9 +61,9 @@
   border: none;
   background-color: #0270ff;
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
-  border-radius: 8px;
+  border-radius: 50px;
   top: 65%;
   left: 44, 5%;
   width: 250px;
@@ -67,8 +72,108 @@
   border: 2px solid transparent;
   transition: all 350ms ease-in-out;
   z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 .btnRes:hover {
   background-color: transparent;
   border: 2px solid #0270ff;
+  color: #0270ff;
+}
+
+.btnCont {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 300;
+}
+.btnLook {
+  position: absolute;
+  outline: none;
+  border: none;
+  background-color: rgb(255, 201, 121);
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  top: 65%;
+  width: 210px;
+  height: 40px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 500ms linear;
+  z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 6px;
+}
+.btnLook:hover {
+  background-color: transparent;
+  border: 2px solid rgb(255, 201, 121);
+  color: rgb(255, 201, 121);
+}
+.btnBack {
+  position: absolute;
+  outline: none;
+  border: none;
+  background-color: rgb(255, 201, 121);
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  top: 65%;
+  width: 130px;
+  height: 40px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 500ms linear;
+  z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btnBack:hover {
+  background-color: transparent;
+  border: 2px solid rgb(255, 201, 121);
+  color: rgb(255, 201, 121);
+}
+@media screen and (max-width: 424px) {
+  .btnCont {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 300;
+  }
+  .btnLook {
+    font-size: 14px;
+    width: 100px;
+    height: 50px;
+    flex-wrap: wrap;
+  }
+  .btnBack {
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .btnCont {
+    top: 10px;
+    left: 10px;
+  }
+  .btnLook {
+    font-size: 14px;
+    width: 150px;
+    height: 40px;
+    gap: 0px;
+    flex-wrap: wrap;
+  }
+  .btnBack {
+    width: 120px;
+    height: 40px;
+  }
 }

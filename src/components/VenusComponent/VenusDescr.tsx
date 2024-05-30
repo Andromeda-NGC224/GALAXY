@@ -1,4 +1,5 @@
-import css from "../EarthComponent/EarthDescr.module.css";
+import { IoPlanet } from "react-icons/io5";
+import css from "../VenusComponent/VenusDescr.module.css";
 
 const VenusDescr = () => {
   return (
@@ -29,7 +30,9 @@ const VenusDescr = () => {
           <span className={css.EarthDescrSpan}>Температура поверхні:</span> 462℃
         </li>
       </ul>
-      <button className={css.btnNavigation}>Навігація 🪐</button>
+      <button className={css.btnNavigation}>
+        <p>Навігація</p> <IoPlanet />
+      </button>
     </div>
   );
 };

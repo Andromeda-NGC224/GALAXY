@@ -4,25 +4,25 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { TextureLoader } from "three";
 
-import DestroyedSunMap from "../../assets/Lava/sunDes.webp";
+import DestroyedMarsMap from "../../assets/Lava/sunDes.webp";
 
-const DestroyedSun = () => {
-  const sunRef = useRef<THREE.Mesh>(null);
+const DestroyedMars = () => {
+  const marsRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    if (sunRef.current) {
-      sunRef.current.rotation.y = elapsedTime / 12;
+    if (marsRef.current) {
+      marsRef.current.rotation.y = elapsedTime / 12;
     }
   });
 
-  const [colorMap] = useLoader(TextureLoader, [DestroyedSunMap]);
+  const [colorMap] = useLoader(TextureLoader, [DestroyedMarsMap]);
 
   return (
     <>
-      <ambientLight intensity={15} />
-
+      <ambientLight intensity={5} />
+      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={120} />
       <Stars
         radius={300}
         depth={60}
@@ -31,7 +31,7 @@ const DestroyedSun = () => {
         saturation={0}
         fade={true}
       />
-      <mesh ref={sunRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
+      <mesh ref={marsRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
         <sphereGeometry args={[1, 32, 15]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>
@@ -49,4 +49,4 @@ const DestroyedSun = () => {
   );
 };
 
-export default DestroyedSun;
+export default DestroyedMars;

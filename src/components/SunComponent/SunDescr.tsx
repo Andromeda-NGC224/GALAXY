@@ -1,3 +1,4 @@
+import { IoPlanet } from "react-icons/io5";
 import css from "../SunComponent/SunDescr.module.css";
 
 const EarthDescr = () => {
@@ -23,7 +24,9 @@ const EarthDescr = () => {
           505℃
         </li>
       </ul>
-      <button className={css.btnNavigation}>Навігація 🪐</button>
+      <button className={css.btnNavigation}>
+        <p>Навігація</p> <IoPlanet />
+      </button>
     </div>
   );
 };
