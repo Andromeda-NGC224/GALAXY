@@ -63,12 +63,11 @@ const Earth = () => {
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={1.2}
         rotateSpeed={0.4}
-        minDistance={1.5}
+        minDistance={1.2}
         maxDistance={5}
       />
     </>

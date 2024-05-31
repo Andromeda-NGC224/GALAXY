@@ -1,5 +1,5 @@
 import { Suspense, useState } from "react";
-import css from "../Sun/Sun.module.css";
+import css from "../Venus/Venus.module.css";
 import CrossRoute from "../../components/CrossRoute/CrossRoute";
 import VenusDescr from "../../components/VenusComponent/VenusDescr";
 import { Canvas } from "@react-three/fiber";
@@ -8,8 +8,9 @@ import Venus from "./Venus";
 import DestroyedVenus from "./DestroyedVenus";
 import { PiPlantBold } from "react-icons/pi";
 import { GiSmallFire } from "react-icons/gi";
-import { FaRegEye } from "react-icons/fa";
+import { FaGithub, FaRegEye } from "react-icons/fa";
 import { GrSatellite } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const VenusApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -44,6 +45,17 @@ const VenusApp = () => {
             <GrSatellite />
           </button>
         )}
+      </div>
+
+      <div className={css.btnGit}>
+        {!inspection ? (
+          <Link
+            target="_blank"
+            to={"https://github.com/Andromeda-NGC224/GALAXY"}
+          >
+            <FaGithub className={css.gitIcon} />
+          </Link>
+        ) : null}
       </div>
 
       {!inspection ? (

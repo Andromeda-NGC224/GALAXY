@@ -9,7 +9,8 @@ import DestroyedMars from "./DestroyedMars";
 import { GiSmallFire } from "react-icons/gi";
 import { PiPlantBold } from "react-icons/pi";
 import { GrSatellite } from "react-icons/gr";
-import { FaRegEye } from "react-icons/fa";
+import { FaGithub, FaRegEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MarsApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -44,6 +45,17 @@ const MarsApp = () => {
             <GrSatellite />
           </button>
         )}
+      </div>
+
+      <div className={css.btnGit}>
+        {!inspection ? (
+          <Link
+            target="_blank"
+            to={"https://github.com/Andromeda-NGC224/GALAXY"}
+          >
+            <FaGithub className={css.gitIcon} />
+          </Link>
+        ) : null}
       </div>
 
       {!inspection ? (

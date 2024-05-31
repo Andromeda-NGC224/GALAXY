@@ -16,7 +16,7 @@
   height: 200vh;
   top: 0;
   left: 0;
-  background-color: rgba(1, 1, 192, 0.09);
+  background-color: rgba(212, 120, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,6 +145,24 @@
   background-color: transparent;
   border: 2px solid rgb(255, 201, 121);
   color: rgb(255, 201, 121);
+}
+.btnGit {
+  position: absolute;
+  color: #fff;
+  transition: color 300ms ease-out;
+  top: 65%;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 300;
+}
+.btnGit:hover {
+  color: rgb(255, 201, 121);
+}
+.gitIcon {
+  width: 30px;
+  height: 30px;
 }
 @media screen and (max-width: 424px) {
   .btnCont {

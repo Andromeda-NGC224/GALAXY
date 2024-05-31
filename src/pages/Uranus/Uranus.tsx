@@ -20,8 +20,14 @@ const Uranus = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={100} />
+      <ambientLight intensity={0.2} />
+
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={30}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -31,18 +37,17 @@ const Uranus = () => {
         fade={true}
       />
 
-      <mesh ref={uranusRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
+      <mesh ref={uranusRef} position={[0, 0, 0]} scale={[1.9, 1.9, 1.9]}>
         <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
+        <meshStandardMaterial map={colorMap} metalness={0.2} roughness={0.5} />
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
         zoomSpeed={0.6}
-        panSpeed={0.5}
-        rotateSpeed={0.4}
-        minDistance={1.5}
+        rotateSpeed={0.8}
+        minDistance={2.4}
         maxDistance={5}
       />
     </>

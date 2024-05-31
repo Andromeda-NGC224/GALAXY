@@ -1,10 +1,13 @@
 import { IoPlanet } from "react-icons/io5";
 import css from "../MercuryComponent/MercuryDescr.module.css";
+import { GlitchText } from "../GlitchText/GlitchText";
 
 const MercuryDescr = () => {
   return (
     <div className={css.EarthDescrCont}>
-      <h1 className={css.EarthDescrTitle}>Меркурій ☿</h1>
+      <h1 className={css.EarthDescrTitle}>
+        <GlitchText theme="white" text={"Меркурій ☿"} />
+      </h1>
       <ul className={css.EarthDescrList}>
         <li className={css.EarthDescrItem}>
           <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 57 910

@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { TextureLoader } from "three";
 
-import DestroyedMercuryMap from "../../assets/Lava/sunDes.webp";
+import DestroyedMercuryMap from "../../assets/Lava/mercyryDes.jpg";
 
 const DestroyedMercury = () => {
   const mercuryRef = useRef<THREE.Mesh>(null);
@@ -21,8 +21,14 @@ const DestroyedMercury = () => {
 
   return (
     <>
-      <ambientLight intensity={5} />
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={120} />
+      <ambientLight intensity={0.45} />
+
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={120}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -31,19 +37,18 @@ const DestroyedMercury = () => {
         saturation={0}
         fade={true}
       />
-      <mesh ref={mercuryRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
+      <mesh ref={mercuryRef} position={[0, 0, 0]} scale={[0.5, 0.5, 0.5]}>
         <sphereGeometry args={[1, 32, 15]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={3}
         rotateSpeed={0.4}
-        minDistance={1.5}
-        maxDistance={5}
+        minDistance={0.65}
+        maxDistance={4}
       />
     </>
   );

@@ -10,6 +10,8 @@ import { PiPlantBold } from "react-icons/pi";
 import { GiSmallFire } from "react-icons/gi";
 import { FaRegEye } from "react-icons/fa";
 import { GrSatellite } from "react-icons/gr";
+import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const EarthApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -46,6 +48,19 @@ const EarthApp = () => {
         )}
       </div>
 
+      <div className={css.btnGit}>
+        {!inspection ? (
+          <Link
+            target="_blank"
+            to={"https://github.com/Andromeda-NGC224/GALAXY"}
+          >
+            <FaGithub className={css.gitIcon} />
+          </Link>
+        ) : null}
+      </div>
+
+      {!inspection ? <EarthDescr /> : null}
+
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
@@ -54,7 +69,7 @@ const EarthApp = () => {
             signTop={"Марс ♂"}
             signBottom={"Венера ♀"}
           />
-          <EarthDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

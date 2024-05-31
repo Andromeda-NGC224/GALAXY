@@ -1,10 +1,13 @@
 import { IoPlanet } from "react-icons/io5";
 import css from "../MarsComponent/MarsDescr.module.css";
+import { GlitchText } from "../GlitchText/GlitchText";
 
 const MarsDescr = () => {
   return (
     <div className={css.EarthDescrCont}>
-      <h1 className={css.EarthDescrTitle}>Марс ♂</h1>
+      <h1 className={css.EarthDescrTitle}>
+        <GlitchText theme="dark-orange" text={"Марс ♂"} />
+      </h1>
       <ul className={css.EarthDescrList}>
         <li className={css.EarthDescrItem}>
           <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 227

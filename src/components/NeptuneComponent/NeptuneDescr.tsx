@@ -1,10 +1,13 @@
+import { GlitchText } from "../GlitchText/GlitchText";
 import css from "../NeptuneComponent/NeptuneDescr.module.css";
 import { IoPlanet } from "react-icons/io5";
 
 const NeptuneDescr = () => {
   return (
     <div className={css.EarthDescrCont}>
-      <h1 className={css.EarthDescrTitle}>Нептун ♆</h1>
+      <h1 className={css.EarthDescrTitle}>
+        <GlitchText theme="blue" text={"Нептун ♆"} />
+      </h1>
       <ul className={css.EarthDescrList}>
         <li className={css.EarthDescrItem}>
           <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 4 504
@@ -29,6 +32,12 @@ const NeptuneDescr = () => {
         <li>
           <span className={css.EarthDescrSpan}>Температура поверхні:</span>{" "}
           -200℃
+        </li>
+        <li>
+          <span className={css.EarthDescrSpan}>
+            Крижаний гігант з діаметром ядра (приблизно):
+          </span>{" "}
+          7 000 km
         </li>
       </ul>
       <button className={css.btnNavigation}>

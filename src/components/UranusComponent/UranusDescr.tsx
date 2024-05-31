@@ -1,10 +1,13 @@
 import { IoPlanet } from "react-icons/io5";
 import css from "../UranusComponent/UranusDescr.module.css";
+import { GlitchText } from "../GlitchText/GlitchText";
 
 const UranusDescr = () => {
   return (
     <div className={css.EarthDescrCont}>
-      <h1 className={css.EarthDescrTitle}>Уран ♅</h1>
+      <h1 className={css.EarthDescrTitle}>
+        <GlitchText theme="turquoise" text={"Уран ♅"} />
+      </h1>
       <ul className={css.EarthDescrList}>
         <li className={css.EarthDescrItem}>
           <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 2 870
@@ -29,6 +32,12 @@ const UranusDescr = () => {
         <li>
           <span className={css.EarthDescrSpan}>Температура поверхні:</span>{" "}
           -210℃
+        </li>
+        <li>
+          <span className={css.EarthDescrSpan}>
+            Крижаний гігант з діаметром ядра (приблизно):
+          </span>{" "}
+          3 500 km
         </li>
       </ul>
       <button className={css.btnNavigation}>

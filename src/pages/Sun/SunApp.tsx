@@ -8,8 +8,9 @@ import Sun from "./Sun";
 import DestroyedSun from "./DestroyedSun";
 import { GiSmallFire } from "react-icons/gi";
 import { PiPlantBold } from "react-icons/pi";
-import { FaRegEye } from "react-icons/fa";
+import { FaGithub, FaRegEye } from "react-icons/fa";
 import { GrSatellite } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const SunApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -45,14 +46,24 @@ const SunApp = () => {
           </button>
         )}
       </div>
+      <div className={css.btnGit}>
+        {!inspection ? (
+          <Link
+            target="_blank"
+            to={"https://github.com/Andromeda-NGC224/GALAXY"}
+          >
+            <FaGithub className={css.gitIcon} />
+          </Link>
+        ) : null}
+      </div>
 
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
-            topRoute={"/Venus"}
+            topRoute={"/Mercury"}
             bottomRoute={""}
-            signTop={"Венера ♀"}
-            signBottom={"Сонце ☉"}
+            signTop={"Меркурій ☿"}
+            signBottom={""}
           />
           <SunDescr />
           {!destroy ? (

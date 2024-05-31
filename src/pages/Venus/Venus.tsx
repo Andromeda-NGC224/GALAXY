@@ -29,9 +29,14 @@ const Venus = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.45} />
 
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={60} />
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={90}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -56,12 +61,11 @@ const Venus = () => {
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={1.5}
         rotateSpeed={0.4}
-        minDistance={1.5}
+        minDistance={1.2}
         maxDistance={5}
       />
     </>

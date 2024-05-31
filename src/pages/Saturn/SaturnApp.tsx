@@ -3,13 +3,14 @@ import Saturn from "./Saturn";
 import DestroyedSaturn from "./DestroyedSaturn";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../../components/Loader/Loader";
-import css from "../Earth/Earth.module.css";
+import css from "../Saturn/Saturn.module.css";
 import SaturnDescr from "../../components/SaturnComponent/SaturnDescr";
 import CrossRoute from "../../components/CrossRoute/CrossRoute";
 import { GiSmallFire } from "react-icons/gi";
 import { PiPlantBold } from "react-icons/pi";
-import { FaRegEye } from "react-icons/fa";
+import { FaGithub, FaRegEye } from "react-icons/fa";
 import { GrSatellite } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const SaturnApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -44,6 +45,16 @@ const SaturnApp = () => {
             <GrSatellite />
           </button>
         )}
+      </div>
+      <div className={css.btnGit}>
+        {!inspection ? (
+          <Link
+            target="_blank"
+            to={"https://github.com/Andromeda-NGC224/GALAXY"}
+          >
+            <FaGithub className={css.gitIcon} />
+          </Link>
+        ) : null}
       </div>
 
       {!inspection ? (

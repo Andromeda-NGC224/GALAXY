@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { TextureLoader } from "three";
 
-import DestroyedVenusMap from "../../assets/Lava/ground_0017_color_4k_1.webp";
+import DestroyedVenusMap from "../../assets/Lava/venusDes.jpg";
 
 const DestroyedVenus = () => {
   const venusRef = useRef<THREE.Mesh>(null);
@@ -21,8 +21,14 @@ const DestroyedVenus = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={180} />
+      <ambientLight intensity={0.45} />
+
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={120}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -37,12 +43,11 @@ const DestroyedVenus = () => {
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={1.5}
         rotateSpeed={0.4}
-        minDistance={1.5}
+        minDistance={1.2}
         maxDistance={5}
       />
     </>

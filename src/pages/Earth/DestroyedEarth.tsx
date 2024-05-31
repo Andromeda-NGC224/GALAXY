@@ -21,8 +21,14 @@ const DestroyedEarth = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={180} />
+      <ambientLight intensity={0.7} />
+
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={120}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -37,12 +43,11 @@ const DestroyedEarth = () => {
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={1.2}
         rotateSpeed={0.4}
-        minDistance={1.5}
+        minDistance={1.4}
         maxDistance={5}
       />
     </>

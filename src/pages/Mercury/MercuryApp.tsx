@@ -8,8 +8,9 @@ import Mercury from "./Mercury";
 import DestroyedMercury from "./DestroyedMercury";
 import { PiPlantBold } from "react-icons/pi";
 import { GiSmallFire } from "react-icons/gi";
-import { FaRegEye } from "react-icons/fa";
+import { FaGithub, FaRegEye } from "react-icons/fa";
 import { GrSatellite } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const MercuryApp = () => {
   const [inspection, setInspection] = useState(false);
@@ -44,6 +45,17 @@ const MercuryApp = () => {
             <GrSatellite />
           </button>
         )}
+      </div>
+
+      <div className={css.btnGit}>
+        {!inspection ? (
+          <Link
+            target="_blank"
+            to={"https://github.com/Andromeda-NGC224/GALAXY"}
+          >
+            <FaGithub className={css.gitIcon} />
+          </Link>
+        ) : null}
       </div>
 
       {!inspection ? (

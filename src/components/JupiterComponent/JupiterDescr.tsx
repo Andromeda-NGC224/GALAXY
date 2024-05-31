@@ -1,10 +1,13 @@
 import { IoPlanet } from "react-icons/io5";
 import css from "../JupiterComponent/JupiterDescr.module.css";
+import { GlitchText } from "../GlitchText/GlitchText";
 
 const JupiterDescr = () => {
   return (
     <div className={css.EarthDescrCont}>
-      <h1 className={css.EarthDescrTitle}>Юпітер ♃</h1>
+      <h1 className={css.EarthDescrTitle}>
+        <GlitchText theme="light-orange " text={"Юпітер ♃"} />
+      </h1>
       <ul className={css.EarthDescrList}>
         <li className={css.EarthDescrItem}>
           <span className={css.EarthDescrSpan}>Відстань від Сонця:</span> 778
@@ -29,6 +32,12 @@ const JupiterDescr = () => {
         <li>
           <span className={css.EarthDescrSpan}>Температура поверхні:</span>{" "}
           -120℃
+        </li>
+        <li>
+          <span className={css.EarthDescrSpan}>
+            Газовий гігант з діаметром ядра (приблизно):
+          </span>{" "}
+          30 000 km
         </li>
       </ul>
       <button className={css.btnNavigation}>

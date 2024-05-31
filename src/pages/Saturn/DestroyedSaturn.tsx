@@ -4,16 +4,16 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { TextureLoader } from "three";
 
-import DestroyedSaturnMap from "../../assets/Lava/earthDes.webp";
+import DestroyedSaturnMap from "../../assets/Lava/saturnDes.webp";
 
 const DestroyedSaturn = () => {
-  const earthRef = useRef<THREE.Mesh>(null);
+  const saturnRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
 
-    if (earthRef.current) {
-      earthRef.current.rotation.y = elapsedTime / 12;
+    if (saturnRef.current) {
+      saturnRef.current.rotation.y = elapsedTime / 12;
     }
   });
 
@@ -21,8 +21,14 @@ const DestroyedSaturn = () => {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={180} />
+      <ambientLight intensity={0.45} />
+
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={120}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -31,18 +37,17 @@ const DestroyedSaturn = () => {
         saturation={0}
         fade={true}
       />
-      <mesh ref={earthRef} position={[0, 0, 0]} scale={[1, 1, 1]}>
+      <mesh ref={saturnRef} position={[0, 0, 0]} scale={[0.45, 0.45, 0.45]}>
         <sphereGeometry args={[1, 32, 15]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={2}
         rotateSpeed={0.4}
-        minDistance={1.5}
+        minDistance={0.7}
         maxDistance={5}
       />
     </>

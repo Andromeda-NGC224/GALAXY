@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { TextureLoader } from "three";
 
 import SaturnDayMap from "../../assets/saturn/8k_saturn.webp";
-import SaturnRingMap from "../../assets/saturn/8k_saturn_ring_alpha.png";
+import SaturnRingMap from "../../assets/saturn/8k_saturn_ring_alpha.webp";
 
 const Saturn = () => {
   const saturnRef = useRef<THREE.Mesh>(null);
@@ -17,22 +17,26 @@ const Saturn = () => {
     if (saturnRef.current) {
       saturnRef.current.rotation.y = elapsedTime / 12;
     }
-
     if (ringRef.current) {
-      ringRef.current.rotation.y = elapsedTime / 6;
+      ringRef.current.rotation.z = elapsedTime / 12;
     }
   });
 
-  const [colorMap, cloudsMap] = useLoader(TextureLoader, [
+  const [colorMap, ringsMap] = useLoader(TextureLoader, [
     SaturnDayMap,
     SaturnRingMap,
   ]);
 
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.45} />
 
-      <pointLight color="#f6f3ea" position={[2, 0, 4]} intensity={100} />
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={80}
+      />
       <Stars
         radius={300}
         depth={60}
@@ -41,30 +45,35 @@ const Saturn = () => {
         saturation={0}
         fade={true}
       />
-      <mesh ref={ringRef} position={[0, 0, 0]} scale={[1, 1, 1]}>
-        <sphereGeometry args={[1.005, 32, 32]} />
+      <mesh
+        ref={ringRef}
+        rotation={[2, 0.3, 1]}
+        castShadow
+        position={[0, 0, 0]}
+        scale={[2.3, 2.3, 2.3]}
+      >
+        <torusGeometry args={[1.5, 0.3, 8, 50]} />
         <meshPhongMaterial
-          map={cloudsMap}
-          opacity={0.4}
-          depthWrite={true}
+          map={ringsMap}
+          opacity={0.9}
           transparent={true}
           side={THREE.DoubleSide}
         />
       </mesh>
-      <mesh ref={saturnRef} position={[0, 0, 0]} scale={[1, 1, 1]}>
+      <mesh ref={saturnRef} position={[0, 0, 0]} scale={[2.1, 2.1, 2.1]}>
         <sphereGeometry args={[1, 32, 32]} />
+        <meshPhongMaterial />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
+        <OrbitControls
+          enableZoom={true}
+          enablePan={false}
+          enableRotate={true}
+          zoomSpeed={0.8}
+          rotateSpeed={0.4}
+          minDistance={2.9}
+          maxDistance={10}
+        />
       </mesh>
-      <OrbitControls
-        enableZoom={true}
-        enablePan={true}
-        enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
-        rotateSpeed={0.4}
-        minDistance={1.5}
-        maxDistance={5}
-      />
     </>
   );
 };

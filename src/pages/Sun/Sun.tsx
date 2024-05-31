@@ -32,19 +32,18 @@ const Sun = () => {
         fade={true}
       />
 
-      <mesh ref={sunRef} position={[0, 0, 0]} scale={[2.5, 2.5, 2.5]}>
+      <mesh ref={sunRef} position={[0, 0, 0]} scale={[3, 3, 3]}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial map={colorMap} metalness={0.4} roughness={1} />
       </mesh>
       <OrbitControls
         enableZoom={true}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
-        zoomSpeed={0.6}
-        panSpeed={0.5}
+        zoomSpeed={0.8}
         rotateSpeed={0.4}
-        minDistance={1.5}
-        maxDistance={5}
+        minDistance={3.1}
+        maxDistance={6}
       />
     </>
   );
