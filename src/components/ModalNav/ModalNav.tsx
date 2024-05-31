@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import css from "./ModalNav.module.css";
 
-const ModalNav = ({ closeModal }) => {
+interface ModalNavProps {
+  closeModal: () => void;
+}
+
+const ModalNav: React.FC<ModalNavProps> = ({ closeModal }) => {
   return (
     <div className={css.mainModalCont}>
       <div className={css.modalContainerWindow}>
