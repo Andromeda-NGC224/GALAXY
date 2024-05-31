@@ -32,7 +32,12 @@ const Earth = () => {
     <>
       <ambientLight intensity={0.45} />
 
-      <pointLight color="#f6f3ea" position={[12, 0, 12]} intensity={1500} />
+      <pointLight
+        color="#f6f3ea"
+        decay={1}
+        position={[12, 0, 12]}
+        intensity={120}
+      />
 
       <Stars
         radius={300}
