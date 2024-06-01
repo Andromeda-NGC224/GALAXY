@@ -1,6 +1,6 @@
 import { IoIosArrowDropup, IoIosArrowDropdown } from "react-icons/io";
 import css from "./CrossRoute.module.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface CrossRouteProps {
   topRoute: string;
@@ -17,23 +17,24 @@ const CrossRoute = ({
 }: CrossRouteProps) => {
   return (
     <div>
-      {topRoute !== "" ? (
-        <NavLink to={topRoute} className={css.arrowTop}>
+      {topRoute && (
+        <Link to={topRoute} state={{ direction: -1 }} className={css.arrowTop}>
           <IoIosArrowDropup className={css.arrowIcon} />
           <h2>{signTop}</h2>
-        </NavLink>
-      ) : (
-        ""
+        </Link>
       )}
-      {bottomRoute !== "" ? (
-        <NavLink to={bottomRoute} className={css.arrowBottom}>
+      {bottomRoute && (
+        <Link
+          to={bottomRoute}
+          state={{ direction: 1 }}
+          className={css.arrowBottom}
+        >
           <h2>{signBottom}</h2>
           <IoIosArrowDropdown className={css.arrowIcon} />
-        </NavLink>
-      ) : (
-        ""
+        </Link>
       )}
     </div>
   );
 };
+
 export default CrossRoute;

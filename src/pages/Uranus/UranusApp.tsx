@@ -58,6 +58,8 @@ const UranusApp = () => {
         ) : null}
       </div>
 
+      {!inspection ? <UranusDescr /> : null}
+
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
@@ -66,7 +68,7 @@ const UranusApp = () => {
             signTop={"Нептун ♆"}
             signBottom={"Сатурн ♄"}
           />
-          <UranusDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

@@ -3,6 +3,7 @@ import css from "../EarthComponent/EarthDescr.module.css";
 import { GlitchText } from "../GlitchText/GlitchText";
 import { useState } from "react";
 import ModalNav from "../ModalNav/ModalNav";
+import { motion } from "framer-motion";
 
 const EarthDescr = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -13,6 +14,12 @@ const EarthDescr = () => {
 
   const handleCloseModal = () => {
     setIsOpenModal(false);
+  };
+
+  const settingsMotion = {
+    whileHover: { scale: 1.05 },
+    whileTap: { scale: 1.05 },
+    transition: { type: "spring", stiffness: 400, damping: 17 },
   };
 
   return (
@@ -46,9 +53,11 @@ const EarthDescr = () => {
             15℃
           </li>
         </ul>
-        <button onClick={handleOpenModal} className={css.btnNavigation}>
-          <p>Навігація</p> <IoPlanet />
-        </button>
+        <motion.div {...settingsMotion}>
+          <button onClick={handleOpenModal} className={css.btnNavigation}>
+            <p>Навігація</p> <IoPlanet />
+          </button>
+        </motion.div>
       </div>
       {isOpenModal ? <ModalNav closeModal={handleCloseModal} /> : null}
     </>

@@ -58,6 +58,7 @@ const MercuryApp = () => {
         ) : null}
       </div>
 
+      {!inspection ? <MercuryDescr /> : null}
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
@@ -66,7 +67,7 @@ const MercuryApp = () => {
             signTop={"Венера ♀"}
             signBottom={"Сонце ☉"}
           />
-          <MercuryDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

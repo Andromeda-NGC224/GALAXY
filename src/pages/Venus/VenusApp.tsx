@@ -57,6 +57,7 @@ const VenusApp = () => {
           </Link>
         ) : null}
       </div>
+      {!inspection ? <VenusDescr /> : null}
 
       {!inspection ? (
         <div className={css.startBox}>
@@ -66,7 +67,7 @@ const VenusApp = () => {
             signTop={"Земля D♁"}
             signBottom={"Меркурій ☿"}
           />
-          <VenusDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

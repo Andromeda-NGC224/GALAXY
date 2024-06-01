@@ -58,6 +58,7 @@ const MarsApp = () => {
         ) : null}
       </div>
 
+      {!inspection ? <MarsDescr /> : null}
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
@@ -66,7 +67,7 @@ const MarsApp = () => {
             signTop={"Юпітер ♃"}
             signBottom={"Земля D♁"}
           />
-          <MarsDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

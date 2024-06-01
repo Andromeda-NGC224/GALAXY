@@ -1,7 +1,8 @@
-import css from "./App.module.css";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import {  lazy } from "react";
 import Layout from "../Layout/Layout";
+import PageSwiper from '../../components/PageSwiper/PageSwiper';
+
 
 const NeptuneApp = lazy(() => import('../../pages/Neptune/NeptuneApp'))
 const UranusApp = lazy(() => import('../../pages/Uranus/UranusApp'))
@@ -15,9 +16,11 @@ const SunApp = lazy(() => import('../../pages/Sun/SunApp'))
 
 
 const App = () => {
+  const location = useLocation()
 
   return (
-   <Layout>
+    <Layout>
+      <PageSwiper>
       <Routes location={location} key={location.pathname}>
         <Route path="/Neptune" element={<NeptuneApp />} />
         <Route path="/Uranus" element={<UranusApp />} />
@@ -28,7 +31,8 @@ const App = () => {
         <Route path="/Venus" element={<VenusApp />} />
         <Route path="/Mercury" element={<MercuryApp />}/>
         <Route path="/Sun" element={<SunApp />} />
-      </Routes>
+        </Routes>
+      </PageSwiper>
   </Layout>
   )
 };

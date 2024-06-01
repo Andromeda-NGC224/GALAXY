@@ -57,6 +57,7 @@ const JupiterApp = () => {
           </Link>
         ) : null}
       </div>
+      {!inspection ? <JupiterDescr /> : null}
 
       {!inspection ? (
         <div className={css.startBox}>
@@ -66,7 +67,7 @@ const JupiterApp = () => {
             signTop={"Сатурн ♄"}
             signBottom={"Марс ♂"}
           />
-          <JupiterDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

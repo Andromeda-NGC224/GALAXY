@@ -57,6 +57,7 @@ const NeptuneApp = () => {
           </Link>
         ) : null}
       </div>
+      {!inspection ? <NeptuneDescr /> : null}
 
       {!inspection ? (
         <div className={css.startBox}>
@@ -66,7 +67,7 @@ const NeptuneApp = () => {
             signTop={""}
             signBottom={"Уран ♅"}
           />
-          <NeptuneDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>

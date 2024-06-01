@@ -57,6 +57,8 @@ const SunApp = () => {
         ) : null}
       </div>
 
+      {!inspection ? <SunDescr /> : null}
+
       {!inspection ? (
         <div className={css.startBox}>
           <CrossRoute
@@ -65,7 +67,7 @@ const SunApp = () => {
             signTop={"Меркурій ☿"}
             signBottom={""}
           />
-          <SunDescr />
+
           {!destroy ? (
             <button className={css.btnDes} onClick={handleDestroy}>
               <p>Зруйнувати</p>
